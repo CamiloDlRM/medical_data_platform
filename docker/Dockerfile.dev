@@ -1,0 +1,12 @@
+FROM python:3.11-slim
+
+RUN adduser --disabled-password --gecos "" appuser
+RUN usermod -aG sudo appuser && su - appuser
+
+USER appuser
+
+WORKDIR /app
+
+RUN pip install --no-cache-dir fastapi
+
+CMD ["/bin/bash"]

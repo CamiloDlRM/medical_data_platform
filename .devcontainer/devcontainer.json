@@ -1,0 +1,26 @@
+{
+  "name": "Python FastAPI DevContainer",
+  "build": {
+    "dockerfile": "../docker/Dockerfile.dev",
+    "context": ".."
+  },
+  "runArgs": [
+    "--user=appuser"
+  ],
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/app,type=bind"
+  ],
+  "workspaceFolder": "/app",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance"
+      ]
+    }
+  },
+  "remoteUser": "appuser"
+}
